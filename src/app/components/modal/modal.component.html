@@ -1,0 +1,74 @@
+
+<div class="modal fade" id="modalGuia" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">
+          {{ !this.dataApi.selectedGuia.id ? 'Nuevo Guia' : 'Actualizar Guia'}}
+        </h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form name="formGuia" #formGuia="ngForm" (ngSubmit)="onGuardarGuia(formGuia)">
+          <input type="hidden" name="id" [(ngModel)]="this.dataApi.selectedGuia.id">
+          <!-- <input type="hidden" name="userUid" [value]="userUid"> -->
+          <div class="form-group">
+            <label for="nombre" class="col-form-label">Nombre:</label>
+            <input type="text" class="form-control" name="nombre" [(ngModel)]="this.dataApi.selectedGuia.nombre">
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="identidad">Identidad</label>
+              <input type="text" class="form-control" name="identidad" [(ngModel)]="this.dataApi.selectedGuia.identidad">
+            </div>
+            <div class="form-group col-md-6">
+              <label for="telefono">Telefono</label>
+              <input type="text" name="telefono" class="form-control"  [(ngModel)]="this.dataApi.selectedGuia.telefono">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="cargo">Cargo</label>
+              <select name="cargo" class="form-control" [(ngModel)]="this.dataApi.selectedGuia.cargo">
+               <option value="Departamental">Departamental</option>
+               <option value="Supervisor">Supervisor</option>
+               <option value="Coordinador">Coordinador</option>
+               <option value="Asistente">Asistente</option>
+             </select>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="correo">Correo</label>
+                <input type="text" name="correo" class="form-control"  [(ngModel)]="this.dataApi.selectedGuia.correo">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="zonas">Zonas</label>
+              <input type="text" name="zonas" class="form-control"  [(ngModel)]="this.dataApi.selectedGuia.zonas">
+            </div>
+
+            <div class="form-group col-md-6">
+              <label for="correo">Foto</label>
+                <input type="text" name="foto" class="form-control"  [(ngModel)]="this.dataApi.selectedGuia.foto">
+            </div>
+
+
+
+
+
+
+
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" #btnClose data-dismiss="modal" (click)="limpiar(formGuia)">Cerrar</button>
+            <button *ngIf="!this.dataApi.selectedGuia.id" type="submit" class="btn btn-primary">Añadir Guia</button>
+            <button *ngIf="this.dataApi.selectedGuia.id" type="submit" class="btn btn-primary">Actualizar Guia</button>
+          </div>
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>

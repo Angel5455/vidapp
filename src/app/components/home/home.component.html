@@ -1,0 +1,32 @@
+<section id="guias" class="mt-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let guia of guias">
+        <div class="card_guia">
+          <div class="card">
+            <div class="card-body text-center">
+              <p>
+                <img class="img-fluid" src="{{guia.foto}}" alt="{{guia.nombre}}">
+              </p>
+              <h4  class="card-title">{{guia.nombre}}</h4>
+              <p class="card-text">
+                {{guia.cargo }}<br>
+                <b>{{guia.zonas}}</b>
+              </p>
+              <div class="container">
+                <p class="badge badge-info">
+                  {{guia.correo}}
+                </p>
+                <p class="badge badge-info">
+                  {{guia.telefono}}
+                </p>
+              </div>
+              <!-- target="_blank" -->
+              <a href="" routerLink="/guia/{{guia.id}}" class="btn btn-block btn-primary" >Ver Mas</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
